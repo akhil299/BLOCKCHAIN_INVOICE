@@ -1,0 +1,17 @@
+# Free local services. `docker compose up -d` starts MongoDB.
+# Optional local IPFS node:  docker compose --profile ipfs up -d
+services:
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    ports: ["27017:27017"]
+    volumes: [mongo_data:/data/db]
+  ipfs:
+    image: ipfs/kubo:latest
+    profiles: ["ipfs"]
+    restart: unless-stopped
+    ports: ["5001:5001", "8080:8080"]
+    volumes: [ipfs_data:/data/ipfs]
+volumes:
+  mongo_data:
+  ipfs_data:

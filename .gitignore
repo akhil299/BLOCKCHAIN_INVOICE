@@ -1,0 +1,14 @@
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+.env
+dist/
+contracts/artifacts/
+contracts/cache/
+contracts/typechain-types/
+backend/storage/blobs/
+shared/deployment.json
+.pytest_cache/
+logs/
+scripts/.use_solcjs

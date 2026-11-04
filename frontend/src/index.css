@@ -1,0 +1,29 @@
+@import "@fontsource-variable/plus-jakarta-sans";
+@import "@fontsource/jetbrains-mono/400.css";
+@import "@fontsource/jetbrains-mono/500.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+html, body, #root { height: 100%; }
+body { @apply bg-paper font-sans text-ink antialiased; font-feature-settings: "ss01", "cv11"; }
+::selection { background: #12B5A6; color: #fff; }
+
+@layer components {
+  .card { @apply rounded-2xl border border-line bg-white shadow-card; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-signal; }
+  .btn-primary { @apply bg-ink text-white hover:bg-ink-700; }
+  .btn-signal { @apply bg-signal text-white hover:bg-signal-600; }
+  .btn-ghost { @apply border border-line bg-white text-ink hover:bg-paper-100; }
+  .btn-danger { @apply bg-risk-high text-white hover:bg-[#b8344b]; }
+  .input { @apply w-full rounded-xl border border-line bg-white px-3.5 py-2.5 text-sm text-ink placeholder:text-ink-500/50 focus:border-signal focus:outline-none focus:ring-2 focus:ring-signal/25; }
+  .label { @apply mb-1.5 block text-sm font-semibold text-ink-700; }
+  .th { @apply px-4 py-3 text-left text-xs font-semibold text-ink-500; }
+  .td { @apply px-4 py-3.5 text-sm; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rail-fill { transition: width .9s cubic-bezier(.2,.8,.2,1); }
+  .gauge-arc { transition: stroke-dashoffset 1s cubic-bezier(.2,.8,.2,1); }
+}
